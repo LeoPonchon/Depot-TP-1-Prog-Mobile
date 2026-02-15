@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+    <string name="app_name">TP</string>
+
+    <!-- Exercice 4 - English -->
+    <string name="exo4_title">Exercise 4 - Internationalization</string>
+    <string name="exo4_subtitle">Multilingual Application</string>
+
+    <!-- Field labels -->
+    <string name="label_nom">Last Name</string>
+    <string name="hint_nom">Enter your last name</string>
+    <string name="label_prenom">First Name</string>
+    <string name="hint_prenom">Enter your first name</string>
+    <string name="label_age">Age</string>
+    <string name="hint_age">Enter your age</string>
+    <string name="label_domaine">Area of Expertise</string>
+    <string name="hint_domaine">Enter your area of expertise</string>
+    <string name="label_telephone">Phone Number</string>
+    <string name="hint_telephone">Enter your phone number</string>
+
+    <!-- Buttons -->
+    <string name="btn_valider">Validate</string>
+    <string name="btn_reinitialiser">Reset Form</string>
+    <string name="btn_langue_fr">Français</string>
+    <string name="btn_langue_en">English</string>
+
+    <!-- Messages -->
+    <string name="msg_titre_resultat">Information Validated</string>
+    <string name="msg_recapitulatif">Summary of information</string>
+    <string name="msg_nom">Last Name</string>
+    <string name="msg_prenom">First Name</string>
+    <string name="msg_age">Age</string>
+    <string name="msg_annees">years old</string>
+    <string name="msg_domaine">Area of Expertise</string>
+    <string name="msg_telephone">Phone Number</string>
+    <string name="msg_langue_changee">Language changed to English</string>
+    <string name="erreur_champs_vides">Please fill in all fields</string>
+    <string name="erreur_nom">Please enter your last name</string>
+    <string name="erreur_prenom">Please enter your first name</string>
+    <string name="erreur_age">Please enter your age</string>
+    <string name="erreur_age_invalide">Please enter a valid age (0-120)</string>
+    <string name="erreur_domaine">Please enter your area of expertise</string>
+    <string name="erreur_telephone">Please enter your phone number</string>
+    <string name="msg_reinitialise">Form reset</string>
+    <string name="msg_valide">Form validated successfully</string>
+</resources>

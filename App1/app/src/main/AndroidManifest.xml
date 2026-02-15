@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Autorisation d'accès à Internet pour l'appel à l'API SNCF -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.flash" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.TP1">
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.TP1">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".ExercisesActivity"
+            android:label="TP1 - Exercices"
+            android:parentActivityName=".MainActivity" />
+
+        <activity
+            android:name=".Exo1Activity"
+            android:label="Exercice 1 : Hello World"
+            android:parentActivityName=".ExercisesActivity" />
+
+        <activity
+            android:name=".Exo2Activity"
+            android:label="Exercice 2 : Inspecter les composants"
+            android:parentActivityName=".ExercisesActivity" />
+
+        <activity
+            android:name=".Exo3Activity"
+            android:label="Exercice 3 : Première application"
+            android:parentActivityName=".ExercisesActivity" />
+
+        <activity
+            android:name=".Exo3JavaActivity"
+            android:label="Exercice 3 : Version Java"
+            android:parentActivityName=".Exo3Activity" />
+
+        <activity
+            android:name=".Exo4Activity"
+            android:label="Exercice 4 : Internationalisation"
+            android:parentActivityName=".ExercisesActivity" />
+
+        <activity
+            android:name=".Exo5Activity"
+            android:label="Exercice 5 : Événements"
+            android:parentActivityName=".ExercisesActivity" />
+
+        <activity
+            android:name=".Exo6Activity"
+            android:label="Exercice 6 : Intent explicite"
+            android:parentActivityName=".ExercisesActivity" />
+
+        <activity
+            android:name=".Exo6DetailActivity"
+            android:label="Exercice 6 : Affichage des données"
+            android:parentActivityName=".Exo6Activity" />
+
+        <activity
+            android:name=".Exo6FinalActivity"
+            android:label="Exercice 6 et 7 : Activité finale"
+            android:parentActivityName=".Exo6DetailActivity" />
+
+    </application>
+
+</manifest>

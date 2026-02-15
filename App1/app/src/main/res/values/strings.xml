@@ -1,0 +1,51 @@
+<resources>
+    <string name="app_name">TP</string>
+
+    <!-- Exercice 4 - Français -->
+    <string name="exo4_title">Exercice 4 - Internationalisation</string>
+    <string name="exo4_subtitle">Application multilingue</string>
+
+    <!-- Labels des champs -->
+    <string name="label_nom">Nom</string>
+    <string name="hint_nom">Entrez votre nom</string>
+    <string name="label_prenom">Prénom</string>
+    <string name="hint_prenom">Entrez votre prénom</string>
+    <string name="label_age">Âge</string>
+    <string name="hint_age">Entrez votre âge</string>
+    <string name="label_domaine">Domaine de compétences</string>
+    <string name="hint_domaine">Entrez votre domaine de compétences</string>
+    <string name="label_telephone">Numéro de téléphone</string>
+    <string name="hint_telephone">Entrez votre numéro de téléphone</string>
+
+    <!-- Boutons -->
+    <string name="btn_valider">Valider</string>
+    <string name="btn_reinitialiser">Réinitialiser le formulaire</string>
+    <string name="btn_langue_fr">Français</string>
+    <string name="btn_langue_en">English</string>
+
+    <!-- Messages -->
+    <string name="msg_titre_resultat">Informations validées</string>
+    <string name="msg_recapitulatif">Récapitulatif des informations</string>
+    <string name="msg_nom">Nom</string>
+    <string name="msg_prenom">Prénom</string>
+    <string name="msg_age">Âge</string>
+    <string name="msg_annees">ans</string>
+    <string name="msg_domaine">Domaine de compétences</string>
+    <string name="msg_telephone">Numéro de téléphone</string>
+    <string name="msg_langue_changee">Langue changée en français</string>
+    <string name="erreur_champs_vides">Veuillez remplir tous les champs</string>
+    <string name="erreur_nom">Veuillez entrer votre nom</string>
+    <string name="erreur_prenom">Veuillez entrer votre prénom</string>
+    <string name="erreur_age">Veuillez entrer votre âge</string>
+    <string
+        name="erreur_age_invalide"
+    >Veuillez entrer un âge valide (0-120)</string>
+    <string
+        name="erreur_domaine"
+    >Veuillez entrer votre domaine de compétences</string>
+    <string
+        name="erreur_telephone"
+    >Veuillez entrer votre numéro de téléphone</string>
+    <string name="msg_reinitialise">Formulaire réinitialisé</string>
+    <string name="msg_valide">Formulaire validé avec succès</string>
+</resources>

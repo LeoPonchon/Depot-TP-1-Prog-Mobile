@@ -1,0 +1,219 @@
+% === Rapport TP1 Programmation Mobile — version mise à jour ===
+\documentclass[12pt,a4paper]{report}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=blue,
+    pdftitle={Rapport de TP1 Programmation Mobile},
+    pdfauthor={Léo Ponchon},
+    pdfsubject={Bases du développement Android}
+}
+
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage{array}
+\usepackage{listings}
+\usepackage{xcolor}
+\onehalfspacing
+
+\lstdefinestyle{code}{
+  language=Java,
+  basicstyle=\ttfamily\small,
+  keywordstyle=\color{blue!70!black}\bfseries,
+  commentstyle=\color{gray!70},
+  stringstyle=\color{green!50!black},
+  showstringspaces=false,
+  frame=tb,
+  framerule=0.3pt,
+  columns=fullflexible,
+  tabsize=2,
+  breaklines=true
+}
+
+\setcounter{secnumdepth}{0}
+
+\begin{document}
+
+% Page de garde
+\begin{titlepage}
+    \centering
+    \vspace*{2cm}
+
+    \includegraphics[width=0.75\textwidth]{logo.png}\par\vspace{1cm}
+
+    {\Huge {Rapport de TP1 Programmation Mobile}\par}
+    \vspace{0.5cm}
+    {\LARGE Bases du développement Android\par}
+    \vspace{2cm}
+
+    {\Large {Master GL}\\
+    Faculté des Sciences\par}
+    \vfill
+
+    {Auteur :} Léo Ponchon\\
+    {Date :} \today\\
+    {Lien dépôt :} \href{https://github.com/LeoPonchon/Depot-TP-1-Prog-Mobile}{Depot TP1}
+
+    \vspace{1cm}
+\end{titlepage}
+
+\tableofcontents
+\newpage
+
+% -----------------
+\section{Résumé du projet}
+
+Ce TP1 avait pour objectif de découvrir et maîtriser les bases du développement Android en Java natif avec Android Studio. L’ensemble des neuf exercices demandés a été réalisé. Chaque exercice a été placé dans une activité distincte afin de garder une architecture claire et facile à comprendre.
+
+Le projet couvre la création d’interfaces graphiques, la gestion des événements utilisateurs, l’internationalisation, la navigation entre activités ainsi que l’utilisation des intents. Certaines parties ont été développées au-delà de ce qui était strictement demandé, notamment pour les exercices 8 et 9 qui ont été rendus entièrement fonctionnels.
+
+\newpage
+\section{Étape 1 — Découverte du projet Android}
+
+\subsection*{Exercice 1 : Structure d’un projet}
+
+Le premier exercice consistait à analyser la structure d’un projet Android. Cela a permis de comprendre le rôle du fichier \texttt{AndroidManifest.xml}, l’organisation du dossier \texttt{res/} contenant les layouts et ressources, ainsi que le dossier \texttt{java/} qui regroupe les activités.
+
+Cette étape était importante pour comprendre comment les différents éléments d'une application Android interagissent entre eux.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Exercice 1.png}
+    \caption{Structure du projet Android}
+\end{figure}
+
+\subsection*{Exercice 2 : Hello World et inspection dynamique}
+
+Au lieu de simplement afficher un message statique, l’activité \texttt{Exo2Activity} a été développée pour inspecter dynamiquement l’application. Elle affiche différentes informations sur les composants déclarés, ce qui permet de mieux comprendre le fonctionnement interne du projet.
+
+Cette approche va un peu plus loin qu'un simple "Hello World" classique.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Exercice 2.png}
+    \caption{Exercice 2 — Inspection dynamique de l'application}
+\end{figure}
+
+\newpage
+\section{Étape 2 — Interfaces et gestion des événements}
+
+\subsection*{Exercice 3 : Formulaire en XML et en Java}
+
+Cet exercice a été réalisé en deux versions. La première utilise un layout XML classique pour définir l’interface. La seconde version construit entièrement l’interface en Java, sans fichier XML.
+
+Un problème de crash est apparu dans la version Java au début, mais il a été identifié puis corrigé. Cela a permis de mieux comprendre la gestion du contexte et la création dynamique de vues.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.45\textwidth]{Exercice 3 - 1.png}
+    \hfill
+    \includegraphics[width=0.45\textwidth]{Exercice 3 - 2.png}
+    \caption{Exercice 3 — Formulaire en XML (gauche) et en Java (droite)}
+\end{figure}
+
+\subsection*{Exercice 4 : Internationalisation}
+
+L’application prend en charge deux langues, le français et l’anglais. Les textes sont définis dans les fichiers \texttt{strings.xml}. Lorsque la langue du téléphone change, l’application adapte automatiquement son affichage.
+
+Cette mise en place respecte les bonnes pratiques recommandées sous Android.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.45\textwidth]{Exercice 4 - 1.png}
+    \hfill
+    \includegraphics[width=0.45\textwidth]{Exercice 4 - 2.png}
+    \caption{Exercice 4 — Internationalisation : français (gauche) et anglais (droite)}
+\end{figure}
+
+\subsection*{Exercice 5 : Gestion des événements}
+
+Lors de la validation d’un formulaire, une \texttt{AlertDialog} est affichée pour demander confirmation à l’utilisateur. Cela permet de gérer correctement les interactions.
+
+Durant le développement, une zone d'affichage des logs avait été ajoutée pour faciliter le débogage. Elle a été supprimée dans la version finale afin de garder une application plus propre. Les instructions de log ont également été retirées.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.32\textwidth]{Exercice 5 - 1.png}
+    \hfill
+    \includegraphics[width=0.32\textwidth]{Exercice 5 - 2.png}
+    \hfill
+    \includegraphics[width=0.32\textwidth]{Exercice 5 - 3.png}
+    \caption{Exercice 5 — Gestion des événements et AlertDialog}
+\end{figure}
+
+\newpage
+\section{Étape 3 — Navigation et communication entre activités}
+
+\subsection*{Exercice 6 : Intent explicite}
+
+La navigation entre plusieurs activités est réalisée à l’aide d’intents explicites. Les données sont transmises grâce à la méthode \texttt{putExtra()} et récupérées dans les activités suivantes.
+
+Cette partie permet de comprendre comment structurer une application composée de plusieurs écrans.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.45\textwidth]{Exercice 6 - 1.png}
+    \hfill
+    \includegraphics[width=0.45\textwidth]{Exercice 6 - 2.png}
+    \caption{Exercice 6 — Navigation entre activités avec intent explicite}
+\end{figure}
+
+\subsection*{Exercice 7 : Intent implicite}
+
+Un appel téléphonique est déclenché à l’aide d’un intent implicite utilisant \texttt{ACTION\_DIAL}. Ce choix est volontaire car il ne nécessite pas de permission sensible.
+
+Un bug empêchait initialement le lancement de l'appel. Une vérification avec \texttt{resolveActivity()} indiquait qu'aucune application téléphonique n'était disponible, même sur un appareil physique. Le problème venait des restrictions récentes d'Android sur la visibilité des applications. La solution a été de supprimer cette vérification et de lancer directement l'intent, ce qui a corrigé le comportement.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.45\textwidth]{Exercice 7 - 1.png}
+    \hfill
+    \includegraphics[width=0.45\textwidth]{Exercice 7 - 2.png}
+    \caption{Exercice 7 — Intent implicite pour appel téléphonique}
+\end{figure}
+
+\newpage
+\section{Étape 4 — Approfondissements}
+
+\subsection*{Exercice 8 : Horaires de trains}
+
+Même si l’énoncé demandait uniquement une interface graphique, une version fonctionnelle a été développée. L’application effectue un appel réseau asynchrone vers l’API de la SNCF, récupère une réponse au format JSON puis affiche dynamiquement les horaires obtenus.
+
+Cela a permis de manipuler les appels HTTP et le traitement de données distantes.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Exercice 8.png}
+    \caption{Exercice 8 — Horaires de trains (API SNCF)}
+\end{figure}
+
+\subsection*{Exercice 9 : Agenda}
+
+Un agenda simple mais fonctionnel a été implémenté. Il permet d’ajouter un événement, de l’afficher selon la date choisie et de le supprimer. Les données sont conservées en mémoire pendant l’exécution de l’application.
+
+Cet exercice a permis de travailler la gestion dynamique des listes et des interactions utilisateur.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Exercice 9.png}
+    \caption{Exercice 9 — Agenda avec gestion d'événements}
+\end{figure}
+
+\newpage
+\section{Conclusion}
+
+Ce TP1 a permis d’acquérir les bases essentielles du développement Android. Les différents exercices ont permis de comprendre la structure d’un projet, la création d’interfaces, la gestion des événements ainsi que la navigation entre activités, c'est une très bonne entrée en matière pour attaquer le TP des capteurs et le futur projet.
+
+L’application finale est fonctionnelle, structurée et cohérente. Certaines parties ont été approfondies afin d’aller un peu plus loin que les exigences minimales, ce qui rend le projet plus complet et plus abouti.
+
+\end{document}
