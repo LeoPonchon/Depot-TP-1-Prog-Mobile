@@ -2,6 +2,8 @@ package fds.gl.tp;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +13,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import java.lang.reflect.Type;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -19,6 +24,9 @@ import java.util.List;
 import java.util.Locale;
 
 public class Exo9Activity extends AppCompatActivity {
+
+    private static final String PREFS_NAME = "CalendrierPrefs";
+    private static final String KEY_EVENEMENTS = "evenements";
 
     private TextView tvDateSelectionnee;
     private TextView tvHeureSelectionnee;
@@ -61,6 +69,11 @@ public class Exo9Activity extends AppCompatActivity {
         heureSelectionnee = Calendar.getInstance();
         afficherDateSelectionnee();
         afficherHeureSelectionnee();
+
+        // Charger les événements sauvegardés
+        chargerEvenements();
+        // Afficher les événements de la date actuelle
+        afficherEvenementsPourDate();
 
         // bouton pour choisir une date dans le calendrier
         btnChoisirDate.setOnClickListener(new View.OnClickListener() {
@@ -184,6 +197,9 @@ public class Exo9Activity extends AppCompatActivity {
         // on rafraîchit l'affichage
         afficherEvenementsPourDate();
 
+        // on sauvegarde les événements
+        sauvegarderEvenements();
+
         Toast.makeText(this, "Événement ajouté avec succès !", Toast.LENGTH_SHORT).show();
     }
 
@@ -256,14 +272,36 @@ public class Exo9Activity extends AppCompatActivity {
     private void supprimerEvenement(Evenement evenement) {
         evenements.remove(evenement);
         afficherEvenementsPourDate();
+        sauvegarderEvenements();
         Toast.makeText(this, "Événement supprimé", Toast.LENGTH_SHORT).show();
     }
 
+    // sauvegarde les événements dans SharedPreferences
+    private void sauvegarderEvenements() {
+        SharedPreferences prefs = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        Gson gson = new Gson();
+        String json = gson.toJson(evenements);
+        editor.putString(KEY_EVENEMENTS, json);
+        editor.apply();
+    }
+
+    // charge les événements depuis SharedPreferences
+    private void chargerEvenements() {
+        SharedPreferences prefs = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+        Gson gson = new Gson();
+        String json = prefs.getString(KEY_EVENEMENTS, null);
+        if (json != null) {
+            Type type = new TypeToken<ArrayList<Evenement>>() {}.getType();
+            evenements = gson.fromJson(json, type);
+        }
+    }
+
     // classe simple pour stocker un événement
-    private static class Evenement {
-        String titre;
-        String description;
-        Date date;
-        Date heureEvenement;
+    public static class Evenement {
+        public String titre;
+        public String description;
+        public Date date;
+        public Date heureEvenement;
     }
 }
